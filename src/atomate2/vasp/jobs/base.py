@@ -43,6 +43,7 @@ _DATA_OBJECTS = [
     Trajectory,
     "force_constants",
     "normalmode_eigenvecs",
+    "vasp_objects"
 ]
 
 
