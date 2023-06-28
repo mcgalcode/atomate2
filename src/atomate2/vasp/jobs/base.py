@@ -131,25 +131,25 @@ class BaseVaspMaker(Maker):
         prev_vasp_dir : str or Path or None
             A previous VASP calculation directory to copy output files from.
         """
-        # copy previous inputs
-        from_prev = prev_vasp_dir is not None
-        if prev_vasp_dir is not None:
-            copy_vasp_outputs(prev_vasp_dir, **self.copy_vasp_kwargs)
+        # # copy previous inputs
+        # from_prev = prev_vasp_dir is not None
+        # if prev_vasp_dir is not None:
+        #     copy_vasp_outputs(prev_vasp_dir, **self.copy_vasp_kwargs)
 
-        if "from_prev" not in self.write_input_set_kwargs:
-            self.write_input_set_kwargs["from_prev"] = from_prev
+        # if "from_prev" not in self.write_input_set_kwargs:
+        #     self.write_input_set_kwargs["from_prev"] = from_prev
 
-        # write vasp input files
-        write_vasp_input_set(
-            structure, self.input_set_generator, **self.write_input_set_kwargs
-        )
+        # # write vasp input files
+        # write_vasp_input_set(
+        #     structure, self.input_set_generator, **self.write_input_set_kwargs
+        # )
 
-        # write any additional data
-        for filename, data in self.write_additional_data.items():
-            dumpfn(data, filename.replace(":", "."))
+        # # write any additional data
+        # for filename, data in self.write_additional_data.items():
+        #     dumpfn(data, filename.replace(":", "."))
 
         # run vasp
-        run_vasp(**self.run_vasp_kwargs)
+        # run_vasp(**self.run_vasp_kwargs)
 
         # parse vasp outputs
         task_doc = get_vasp_task_document(Path.cwd(), **self.task_document_kwargs)
