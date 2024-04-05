@@ -19,7 +19,7 @@ class InterfaceEnergyMaker():
         interface_struct, strains = self.calculate_interface_struct(struct1, struct2)
 
         interface_energy_job = self.get_interface_relax_job(interface_struct)
-        
+        #HOI: what is the interface relax job?
         strained_bulk_surface_jobs = [self.get_strained_bulk_job(s, st) for s, st in zip([struct1, struct2], strains)]
 
         return Flow([*relax_jobs, interface_energy_job, *strained_bulk_surface_jobs])
