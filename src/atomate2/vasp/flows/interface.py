@@ -77,7 +77,7 @@ class InterfaceEnergyMaker(Maker):
             interfaces.append(list(cib_2.get_interfaces(termination=termination, gap=2.0, vacuum_over_film=0, film_thickness=3, substrate_thickness=1)))
         
         strained_structure_1 = structure_1.apply_strain(np.diag(match_1[0].strain)) #get_strained_surface(structure_1, match_1[0].strain, cib_1.terminations[0])
-        strained_structure_2 = structure_1.apply_strain(np.diag(match_1[0].strain)) #get_strained_surface(structure_2, match_2[0].strain, cib_2.terminations[0])
+        strained_structure_2 = structure_1.apply_strain(np.diag(match_2[0].strain)) #get_strained_surface(structure_2, match_2[0].strain, cib_2.terminations[0])
 
         return interfaces, [strained_structure_1, strained_structure_2]
     
